@@ -30,5 +30,18 @@
       $personsList = $result->fetchAll();
       return $personsList;
     }
+
+    public static function add( string $name, string $sname, string $pname, string $byear, bool $sex)
+    {
+      $db = DB::getConnect();
+      $sql = 'INSERT INTO person (name, sname, pname, byear, sex) VALUES (:name, :sname, :pname, :byear, :sex)';
+      $result =   $db->prepare($sql);
+      $result->bindParam(':name', $name, PDO::PARAM_STR);
+      $result->bindParam(':sname', $sname, PDO::PARAM_STR);
+      $result->bindParam(':pname', $pname, PDO::PARAM_STR);
+      $result->bindParam(':byear', $byear, PDO::PARAM_STR);
+      $result->bindParam(':sex', $sex, PDO::PARAM_BOOL);
+      return $result->execute();
+    }
   }
  ?>

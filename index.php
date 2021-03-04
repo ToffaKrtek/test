@@ -10,5 +10,7 @@
   // Соединение с БД
 
   // Роутер
+  include_once(ROOT.'/views/header.php');
   $router = new Router();
   $router->run();
+  include_once(ROOT.'/views/footer.php');

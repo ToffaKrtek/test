@@ -5,7 +5,9 @@
       public $routes =  array(
 
           '/item/([0-9]+)' => 'main/item/$1', //actionView в MainController (по Id сотрудника)
-        '/form' => 'form/index', //actionForm в FormController (форма для добавления\изменения )
+        '/form/update/([0-9]+)' => 'form/update/$1', //actionForm в FormController (форма для добавления\изменения )
+        '/form/delete/([0-9]+)' => 'form/delete/$1', //actionForm в FormController (форма для добавления\изменения )
+        '/form/add' => 'form/add',
         '/' => 'main/list', //Главная страница (список всех элементов)
       );
 
