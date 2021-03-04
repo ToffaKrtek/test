@@ -23,16 +23,17 @@ try {
   echo "Таблица Person создана";
 
 // Мб, переписать чтобы одним запросом
-  $sql = "CREATE TABLE IF NOT EXISTS worker_exp( ".
+  $sql = "CREATE TABLE IF NOT EXISTS worker_expirience( ".
+         "company_id INT NOT NULL AUTO_INCREMENT, ".
          "person_id INT NOT NULL, ".
          "company_name VARCHAR(100) NOT NULL, ".
          "date_start DATE NOT NULL, ".
          "date_end DATE default NULL, ".
-         "PRIMARY KEY ( person_id )); ";
+         "PRIMARY KEY ( company_id )); ";
   $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
   $db->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
   $db->exec($sql);
-  echo "Таблица Worker_Exp создана";
+  echo "Таблица worker_expirience создана";
   } catch(PDOException $e) {
   echo $e->getMessage();//Remove or change message in production code
 }
