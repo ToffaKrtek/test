@@ -4,7 +4,10 @@
       //Мб, дропнуть в отдельный файл с конфигами
       public $routes =  array(
 
-          '/item/([0-9]+)' => 'main/item/$1', //actionView в MainController (по Id сотрудника)
+        '/item/([0-9]+)' => 'main/item/$1', //actionView в MainController (по Id сотрудника)
+          '/form-company/update/([0-9]+)'  => 'formCompany/update/$1', //Тут по id записи (компании)
+          '/form-company/delete/([0-9]+)'  => 'formCompany/delete/$1', //Тут по id  записи (компании)
+          '/form-company/add/([0-9]+)'  => 'formCompany/add/$1', //Тут по id сотрудника
         '/form/update/([0-9]+)' => 'form/update/$1', //actionForm в FormController (форма для добавления\изменения )
         '/form/delete/([0-9]+)' => 'form/delete/$1', //actionForm в FormController (форма для добавления\изменения )
         '/form/add' => 'form/add',

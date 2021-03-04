@@ -3,7 +3,7 @@
   {
     public static function getById(int $company_id)
     {
-      if ($id)
+      if ($company_id)
       {
         $db = DB::getConnect();
         $result = $db->query('SELECT * FROM worker_expirience WHERE company_id=' . $company_id);
@@ -27,6 +27,35 @@
 
       $companyList = $resultCompanies->fetchAll();
       return $companyList;
+    }
+
+    public static function add( int $person_id, string $company_name, string $date_start, string $date_end)
+    {
+      $db = DB::getConnect();
+      $sql = 'INSERT INTO worker_expirience (person_id, company_name, date_start, date_end) VALUES (:person_id, :company_name, :date_start, :date_end)';
+      $result =   $db->prepare($sql);
+      $result->bindParam(':person_id', $person_id, PDO::PARAM_INT);
+      $result->bindParam(':company_name', $company_name, PDO::PARAM_STR);
+      $result->bindParam(':date_start', $date_start, PDO::PARAM_STR);
+      $result->bindParam(':date_end', $date_end, PDO::PARAM_STR);
+      return $result->execute();
+    }
+    public static function update(int $company_id, string $company_name, string $date_start, string $date_end)
+    {
+      $db = DB::getConnect();
+      $sql = 'UPDATE worker_expirience SET company_name=?, date_start=?, date_end=? WHERE company_id=?';
+      $result =   $db->prepare($sql);
+
+      return $result->execute([$company_name, $date_start, $date_end, $company_id]);
+    }
+
+    public static function delete(int $company_id)
+    {
+      $db = DB::getConnect();
+      $sql = 'DELETE FROM worker_expirience WHERE company_id= :company_id';
+      $result =   $db->prepare($sql);
+      $result->bindParam(':company_id', $company_id, PDO::PARAM_INT);
+      return $result->execute();
     }
   }
  ?>

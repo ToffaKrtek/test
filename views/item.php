@@ -35,11 +35,14 @@
             <?php endif;?>
         </td>
         <td >
-          <button type="button" class="btn  btn-outline-success" >Изменить</button>
-          <button type="button" class="btn  btn-outline-danger" >Удалить</button>
+          <button type="button" class="btn  btn-outline-success"  onClick="window.location.href='/form-company/update/<?=$company['company_id']?>';">Изменить</button>
+          <button type="button" class="btn  btn-outline-danger" onClick="window.location.href='/form-company/delete/<?=$company['company_id']?>';">Удалить</button>
         </td>
       </tr>
     <?php endforeach; ?>
+    <tr>
+      <button type="button" class="btn  btn-outline-success" onClick="window.location.href='/form-company/add/<?=$personInfo['person_id']?>';">+Добавить место работы</button>
+    </tr>
     </tbody>
   </table>
   </div>

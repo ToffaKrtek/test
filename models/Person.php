@@ -43,5 +43,23 @@
       $result->bindParam(':sex', $sex, PDO::PARAM_BOOL);
       return $result->execute();
     }
+
+    public static function update(int $id, string $name, string $sname, string $pname, string $byear, bool $sex)
+    {
+      $db = DB::getConnect();
+      $sql = 'UPDATE person SET name=?, sname=?, pname=?, byear=?, sex=? WHERE person_id=?';
+      $result =   $db->prepare($sql);
+
+      return $result->execute([$name, $sname, $pname, $byear, $sex, $id]);
+    }
+
+    public static function delete(int $id)
+    {
+      $db = DB::getConnect();
+      $sql = 'DELETE FROM person WHERE person_id= :id';
+      $result =   $db->prepare($sql);
+      $result->bindParam(':id', $id, PDO::PARAM_INT);
+      return $result->execute();
+    }
   }
  ?>

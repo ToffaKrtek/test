@@ -30,4 +30,7 @@
 <div class="form-group">
  <button type="submit" name="submit" class="btn btn-primary">Сохранить</button>
 </form>
+<?php if ($result): ?>
+  <button type="button" class="btn  btn-outline-success" onClick="window.location.href='/form-company/add/<?=$personInfo['person_id']?>';">+Добавить место работы</button>
+<?php endif; ?>
 </div>
