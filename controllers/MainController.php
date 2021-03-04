@@ -1,9 +1,15 @@
 <?php
+
+  include_once ROOT. '/models/Person.php';
   class MainController
   {
     public function actionList()
     {
-      echo 'fff';
+      $personsList = array();
+      $personsList = Person::getList();
+      echo '<pre>';
+      print_r($personsList);
+      echo '</pre>';
       return true;
     }
     public function actionItem( int $id)

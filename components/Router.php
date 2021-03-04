@@ -6,7 +6,7 @@
 
           '/item/([0-9]+)' => 'main/item/$1', //actionView в MainController (по Id сотрудника)
         '/form' => 'form/index', //actionForm в FormController (форма для добавления\изменения )
-        '/main' => 'main/list', //Главная страница (список всех элементов)
+        '/' => 'main/list', //Главная страница (список всех элементов)
       );
 
       // public function __construct()
