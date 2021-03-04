@@ -1,4 +1,6 @@
 <?php
+include_once ROOT. '/models/Expirience.php';
+
   class Person
   {
     public static function getById(int $id)
@@ -55,6 +57,9 @@
 
     public static function delete(int $id)
     {
+      //Сперва удаляем все связанные компании
+      Expirience::removePerson($id);
+
       $db = DB::getConnect();
       $sql = 'DELETE FROM person WHERE person_id= :id';
       $result =   $db->prepare($sql);

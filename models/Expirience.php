@@ -57,5 +57,14 @@
       $result->bindParam(':company_id', $company_id, PDO::PARAM_INT);
       return $result->execute();
     }
+    //При удалении сотрудника - стираем все компании связанные с ним
+    public static function removePerson(int $person_id)
+    {
+      $db = DB::getConnect();
+      $sql = 'DELETE FROM worker_expirience WHERE person_id= :person_id';
+      $result =   $db->prepare($sql);
+      $result->bindParam(':person_id', $person_id, PDO::PARAM_INT);
+      return $result->execute();
+    }
   }
  ?>
